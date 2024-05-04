@@ -54,24 +54,24 @@ resource "azurerm_resource_group" "rg" {
 ## Recovery Services
 #-------------------------------------
 
-resource "azurerm_recovery_services_vault" "vault" {
-  name                = var.recovery_services_vault_name != "" ? var.recovery_services_vault_name : "${local.resource_prefix}-bvault"
-  location            = var.location
-  resource_group_name = local.resource_group_name
-  sku                 = var.recovery_services_vault_sku != null ? var.recovery_services_vault_sku : "Standard"
-  storage_mode_type   = var.recovery_services_vault_storage_mode != null ? var.recovery_services_vault_storage_mode : "LocallyRedundant"
+#resource "azurerm_recovery_services_vault" "vault" {
+  #name                = var.recovery_services_vault_name != "" ? var.recovery_services_vault_name : "${local.resource_prefix}-bvault"
+  #location            = var.location
+  #resource_group_name = local.resource_group_name
+  #sku                 = var.recovery_services_vault_sku != null ? var.recovery_services_vault_sku : "Standard"
+  #storage_mode_type   = var.recovery_services_vault_storage_mode != null ? var.recovery_services_vault_storage_mode : "LocallyRedundant"
 
   #cross_region_restore_enabled = var.recovery_servuces_vault_cross_region_restore_enabled
 
-  tags = merge({ "ResourceName" = var.recovery_services_vault_name != "" ? var.recovery_services_vault_name : "${local.resource_prefix}-bvault" }, var.tags, )
+  #tags = merge({ "ResourceName" = var.recovery_services_vault_name != "" ? var.recovery_services_vault_name : "${local.resource_prefix}-bvault" }, var.tags, )
 
-  timeouts {
-    create = local.timeout_create
-    delete = local.timeout_delete
-    read   = local.timeout_read
-    update = local.timeout_update
-  }
-}
+  #timeouts {
+    #create = local.timeout_create
+    #delete = local.timeout_delete
+    #read   = local.timeout_read
+    #update = local.timeout_update
+  #}
+#}
 
 #-------------------------------------
 ## Backup Policy
